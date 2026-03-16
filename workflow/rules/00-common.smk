@@ -78,5 +78,5 @@ def get_species_tree(wildcards):
 def get_alignment_ext(wildcards):
     if config["dna_or_aa"] == "DNA" or config["dna_or_aa"] == "dna":
         return "fna"
-    if config["dna_or_aa"] == "dna" or config["dna_or_aa"] == "aa":
+    if config["dna_or_aa"] == "AA" or config["dna_or_aa"] == "aa":
         return "faa"
