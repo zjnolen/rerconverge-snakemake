@@ -4,7 +4,7 @@ import math
 from pathlib import Path
 
 # Define containers for easy version verification
-rerconverge_container = "rerconverge.sif"
+rerconverge_container = "docker://ghcr.io/zjnolen/rerconverge:0.3.0-20260106-251bae1"
 phykit_container = "docker://quay.io/biocontainers/phykit:2.1.5--pyhdfd78af_0"
 iqtree_container = "docker://quay.io/biocontainers/iqtree:3.0.1--h503566f_0"
 coreutils_container = "docker://quay.io/biocontainers/coreutils:9.5"
