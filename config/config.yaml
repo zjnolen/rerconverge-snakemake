@@ -1,0 +1,53 @@
+
+#------ Main Configuration ------#
+
+# name the dataset, results will be prefixed with this name
+dataset: "example-dataset"
+
+# provide the gene alignments. This can either be a file with a list of genes
+# and the path to the alignments, or a directory of gene alignments. If the
+# latter, all alignments in the directory will be included and genes will be the
+# filename minus the extension (i.e. .fna, .fa, .fasta, .faa, etc.). Here, you
+# also specify whether these are DNA ('DNA') or amino acids ('AA')
+# alignments.
+genes: "data/example-genes"
+dna_or_aa: "DNA"
+
+# Alternative example:
+# genes: "config/example_alignment_list.tsv"
+# dna_or_aa: "AA"
+
+# provide the trait data. This should be a tab-separated table with a header.
+# The header should contain one column 'taxa' and a column for each trait. The
+# trait will be named after the string in the header. Each row is a taxon with
+# the name as it appears in the alignments in the 'taxa' column, and values for
+# the traits each trait column. Entries can be left blank if no trait data is
+# available and that taxon will be excluded from the analysis of that trait.
+traits: "config/example-traits.tsv"
+
+# provide the species tree to use. All taxa you want to include in the analysis
+# must be present in the tree with their tip labels the same as the sequence
+# names in the alignment. Alternatively, give a value of "infer_tree" to infer
+# the species tree from the alignments you provide.
+species_tree: "config/example-tree.treefile"
+# Alternative example:
+# species_tree: "infer_tree"
+
+# By default, only RERconverge will be run, providing output tables for each
+# trait. Additional analyses can be run to examine the robustness of these
+# outputs and are enabled here:
+
+
+
+#------ Tool Parameters ------#
+
+# set parameters for specific portions of the workflow. All are populated with
+# some suggested defaults
+params:
+  tree_inference:
+    seed: 1215 # used in both random gene selection and iqtree run, leave empty to use new seed every time
+    n_genes: 200 # number of genes to use for tree inference ('all' uses all genes)
+    min_prop_taxa: 1.0 # proportion of taxa needed in alignment to include gene in the random selection
+  rerconverge_phangorn:
+    dna_model: "GTR" # substitution model to use with phangorn for dna alignments
+    aa_model: "LG" # substitution model to use with phangorn for amino acid alignments
