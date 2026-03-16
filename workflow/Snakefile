@@ -1,0 +1,22 @@
+include: "rules/00-common.smk"
+include: "rules/01-species-tree.smk"
+include: "rules/02-rerconverge.smk"
+
+
+wildcard_constraints:
+    trait="|".join(trait_ids),
+    gene="|".join(genes_list.index.tolist()),
+    dataset=config["dataset"],
+
+
+rule all:
+    input:
+        expand(
+            expand(
+                "results/{{dataset}}/rerconverge/rho_tables/{{dataset}}_{trait}_{trait_type}.tsv",
+                zip,
+                trait=trait_ids,
+                trait_type=trait_types,
+            ),
+            dataset=config["dataset"],
+        ),
