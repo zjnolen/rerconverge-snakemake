@@ -54,6 +54,13 @@ your current working directory with:
 snakedeploy deploy-workflow https://github.com/zjnolen/rerconverge-snakemake --tag main
 ```
 
+## Workflow outline
+
+Here is a simplified flow of the workflow. It uses five genes and three traits
+as an example, but the workflow will scale to any number of genes and traits.
+
+![A flowchart of the rerconverge workflow](images/rerconverge_dag.png)
+
 ## Suggested customizations
 
 ### Job grouping for tree scaling
