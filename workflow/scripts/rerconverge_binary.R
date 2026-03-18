@@ -21,7 +21,7 @@ rerw <- getAllResiduals(
   norm = "scale", useSpecies = taxa
 )
 
-fg_paths <- foreground2Paths(fg_species, trees, clade = "all")
+fg_paths <- foreground2Paths(fg_taxa, trees, clade = "all")
 
 cor_trait <- correlateWithBinaryPhenotype(
   rerw, fg_paths, min.sp = 10, min.pos = 2, weighted = "auto",
