@@ -4,7 +4,7 @@ rule select_genes_for_species_tree_inference:
     output:
         genes="results/{dataset}/01-tree-inference/genes_for_tree_inference.txt",
     params:
-        trait_taxa=traits["taxa"].tolist(),
+        trait_taxa=traits["taxon"].tolist(),
         genes_list=genes_list,
     container:
         pandas_container
