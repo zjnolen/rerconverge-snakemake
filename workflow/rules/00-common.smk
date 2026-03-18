@@ -8,6 +8,7 @@ rerconverge_container = "docker://ghcr.io/zjnolen/rerconverge:0.3.0-20260106-251
 phykit_container = "docker://quay.io/biocontainers/phykit:2.1.5--pyhdfd78af_0"
 iqtree_container = "docker://quay.io/biocontainers/iqtree:3.0.1--h503566f_0"
 coreutils_container = "docker://quay.io/biocontainers/coreutils:9.5"
+pandas_container = "docker://quay.io/biocontainers/pandas:2.2.1"
 
 # read in configfile
 
@@ -58,7 +59,7 @@ if os.path.isfile(config["genes"]):
     )
 elif os.path.isdir(config["genes"]):
     genes = [Path(gene).stem for gene in os.listdir(config["genes"])]
-    gene_paths = [f"{config["genes"]}/{gene}" for gene in os.listdir(config["genes"])]
+    gene_paths = [f"{config[" genes "]}/{gene}" for gene in os.listdir(config["genes"])]
     genes_list = pd.DataFrame({"gene": genes, "path": gene_paths}).set_index(
         "gene", drop=False
     )
