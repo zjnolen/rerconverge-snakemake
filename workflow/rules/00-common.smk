@@ -59,7 +59,7 @@ if os.path.isfile(config["genes"]):
     )
 elif os.path.isdir(config["genes"]):
     genes = [Path(gene).stem for gene in os.listdir(config["genes"])]
-    gene_paths = [f"{config[" genes "]}/{gene}" for gene in os.listdir(config["genes"])]
+    gene_paths = [config["genes"] + f"/{gene}" for gene in os.listdir(config["genes"])]
     genes_list = pd.DataFrame({"gene": genes, "path": gene_paths}).set_index(
         "gene", drop=False
     )
