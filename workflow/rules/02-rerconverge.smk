@@ -52,7 +52,8 @@ rule rerconverge_binary_trait:
         traits=config["traits"],
         trees="results/{dataset}/rerconverge/phangorn_trees/all_gene_trees.tsv",
     output:
-        rho="results/{dataset}/rerconverge/rho_tables/{dataset}_{trait}_binary.tsv",
+        rho="results/{dataset}/rerconverge/{trait}/{dataset}_{trait}_binary_rho.tsv",
+        plot="results/{dataset}/rerconverge/{trait}/{dataset}_{trait}_binary_RER-variance.pdf",
     container:
         rerconverge_container
     resources:
