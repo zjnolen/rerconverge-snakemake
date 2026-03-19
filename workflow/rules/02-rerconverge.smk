@@ -6,6 +6,8 @@ rule link_alignments:
     container:
         coreutils_container
     localrule: True
+    group:
+        "phangorn_trees"
     shell:
         """
         ln -sr {input} {output}
