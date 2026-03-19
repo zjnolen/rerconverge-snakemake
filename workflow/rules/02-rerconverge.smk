@@ -55,6 +55,8 @@ rule rerconverge_binary_trait:
         rho="results/{dataset}/rerconverge/rho_tables/{dataset}_{trait}_binary.tsv",
     container:
         rerconverge_container
+    resources:
+        runtime="6h"
     params:
         taxa=traits["taxon"].tolist(),
         trait_values=lambda w: traits[f"{w.trait}"].tolist(),
@@ -70,5 +72,10 @@ rule rerconverge_continuous_trait:
         rho="results/{dataset}/rerconverge/rho_tables/{dataset}_{trait}_continuous.tsv",
     container:
         rerconverge_container
+    resources:
+        runtime="6h"
+    params:
+        taxa=traits["taxon"].tolist(),
+        trait_values=lambda w: traits[f"{w.trait}"].tolist(),
     script:
         "../scripts/rerconverge_continuous.R"
