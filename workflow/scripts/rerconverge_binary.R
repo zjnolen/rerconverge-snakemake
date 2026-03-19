@@ -22,7 +22,6 @@ rerw <- getAllResiduals(
   transform = "sqrt", n.pcs = 0, use.weights = TRUE, weights = NULL,
   norm = "scale"
 )
-dev.off()
 
 fg_paths <- foreground2Paths(fg_taxa, trees, clade = "all")
 
