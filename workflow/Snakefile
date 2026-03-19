@@ -13,7 +13,7 @@ rule all:
     input:
         expand(
             expand(
-                "results/{{dataset}}/rerconverge/{trait}/{{dataset}}_{trait}_{trait_type}_rho.tsv",
+                "results/{{dataset}}/rerconverge/rho/{{dataset}}_{trait}_{trait_type}_rho.tsv",
                 zip,
                 trait=trait_ids,
                 trait_type=trait_types,
