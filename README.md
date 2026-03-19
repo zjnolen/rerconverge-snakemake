@@ -70,6 +70,9 @@ can be skipped a species tree is provided in the config.
 RERconverge uses phangorn to generate fixed topology gene trees with branches
 scaled based on the gene alignments. These can take some time to generate if all
 are done sequentially. To speed this up, each gene is done as a
-separate job, but this can lead to many short running small jobs. N of these
-jobs can be put into a group and submitted together by adding
-`--group-components phangorn-trees=N` to the snakemake command.
+separate job, but this can lead to many short running small jobs. It may be best
+to run the workflow on a single large node with many cores up until this step is
+completed to avoid submitting many small jobs. You can also place multiple in a
+single group job, but in testing I find that grouping in Snakemake this way
+currently is not parallelizing across the group.
+
