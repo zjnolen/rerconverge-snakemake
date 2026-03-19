@@ -31,7 +31,11 @@ cor_trait <- correlateWithBinaryPhenotype(
   winsorizeRER = NULL, winsorizetrait = NULL, bootstrap = FALSE
 )
 
+cor_trait$gene <- row.names(cor_trait)
+
+cor_trait <- cor_trait[, c("gene", "Rho", "N", "P", "p.adj")]
+
 write.table(
   cor_trait,
-  file = snakemake@output[["rho"]], quote = FALSE, sep = "\t"
+  file = snakemake@output[["rho"]], quote = FALSE, sep = "\t", row.names = FALSE
 )

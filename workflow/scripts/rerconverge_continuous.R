@@ -26,6 +26,10 @@ cor_trait <- correlateWithContinuousPhenotype(
   rerw, charpaths, min.sp = 10, winsorizeRER = 3, winsorizetrait = 3
 )
 
+cor_trait$gene <- row.names(cor_trait)
+
+cor_trait <- cor_trait[, c("gene", "Rho", "N", "P", "p.adj")]
+
 write.table(
   cor_trait,
   file = snakemake@output[["rho"]], quote = FALSE, sep = "\t"
