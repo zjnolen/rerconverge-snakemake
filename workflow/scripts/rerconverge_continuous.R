@@ -10,12 +10,14 @@ traits <- traits[!is.na(traits)]
 
 # read in trees with branch lengths adjusted by phangorn, only include taxa with
 # value for trait of interest
-trees <- readTrees(snakemake@input[["trees"]])
+trees <- readTrees(snakemake@input[["trees"]], useSpecies = taxa)
 
 # calculate all RER residuals
+pdf(file = snakemake@output[["plot"]])
 rerw <- getAllResiduals(
-  trees, transform = "sqrt", n.pcs = 0, use.weights = TRUE, weights = NULL,
-  norm = "scale", useSpecies = taxa
+  trees,
+  transform = "sqrt", n.pcs = 0, use.weights = TRUE, weights = NULL,
+  norm = "scale"
 )
 
 charpaths <- char2Paths(traits, trees)
@@ -24,4 +26,7 @@ cor_trait <- correlateWithContinuousPhenotype(
   rerw, charpaths, min.sp = 10, winsorizeRER = 3, winsorizetrait = 3
 )
 
-write.table(cor_trait, file = snakemake@output[["rho"]])
+write.table(
+  cor_trait,
+  file = snakemake@output[["rho"]], quote = FALSE, sep = "\t"
+)
