@@ -20,10 +20,12 @@ rerw <- getAllResiduals(
   norm = "scale"
 )
 
+names(traits) <- taxa
 charpaths <- char2Paths(traits, trees)
 
 cor_trait <- correlateWithContinuousPhenotype(
-  rerw, charpaths, min.sp = 10, winsorizeRER = 3, winsorizetrait = 3
+  rerw, charpaths,
+  min.sp = 10, winsorizeRER = 3, winsorizetrait = 3
 )
 
 cor_trait$gene <- row.names(cor_trait)
