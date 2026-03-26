@@ -51,7 +51,7 @@ Once you have Snakemake and Snakedeploy ready, you can deploy the pipeline in
 your current working directory with:
 
 ```bash
-snakedeploy deploy-workflow https://github.com/zjnolen/rerconverge-snakemake --tag main
+snakedeploy deploy-workflow https://github.com/zjnolen/rerconverge-snakemake --tag v0.1.0-a.1 .
 ```
 
 ## Workflow outline
